@@ -1,0 +1,11 @@
+<button (click)="newGame()">new Game</button>
+
+<button *ngIf="inGame | async" (click)="cancelGameProposal()">cancel</button>
+<button (click)="logout()">logout</button> 
+<div class="online-users">
+  <ul>
+    <li *ngFor="let user of onlineUsers | async" (click)="inquireUser(user.$key)">
+      <strong>{{user.username}}: </strong>{{user.in_game}}
+    </li>
+  </ul>
+</div>

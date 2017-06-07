@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs'
+
+import { UserService } from './user.service'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Chess McBest';
+  user: Observable<any>;
+
+  constructor(private u: UserService){
+    this.user = u.getUser();  
+  }
 }
