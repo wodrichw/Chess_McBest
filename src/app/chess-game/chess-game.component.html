@@ -1,3 +1,5 @@
-<p>
-  chess-game works!
-</p>
+  
+<button *ngIf="uid == null || (inGame | async)" (click)="cancelGameProposal()">cancel</button>
+<button (click)="getMyKey()">Get Key</button>
+<h1>{{game}} game</h1>
+<h1>{{inGame | async}} game2</h1>
