@@ -2,6 +2,8 @@
 
 @import url('https://fonts.googleapis.com/css?family=Cormorant+SC:700');
 
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:700');
+
 
 
 .site-title {
@@ -11,7 +13,7 @@
     font-size: 60px;
     margin: 0;
     padding: 10px;
-    padding-left: 50px;
+    padding-left: 5%;
     color: #722f37;
     background-color: lightgrey;
 }
