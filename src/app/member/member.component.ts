@@ -26,7 +26,7 @@ export class MemberComponent {
     userService.getUser().subscribe(uid => {
       this.uid = uid;
     });
-    this.inGame = db.list('activegames/' + this.uid + 'in_game');
+    this.inGame = db.list('activegames/' + this.uid );
   }
 
 

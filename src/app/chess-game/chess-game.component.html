@@ -1,5 +1,9 @@
-  
-<button *ngIf="uid == null || (inGame | async)" (click)="cancelGameProposal()">cancel</button>
+<button *ngIf="uid == null || game == 'waiting'" (click)="cancelGameProposal()">cancel</button>
+<button (click)="cancelGameProposal()">cancel temp</button>
 <button (click)="getMyKey()">Get Key</button>
-<h1>{{game}} game</h1>
-<h1>{{inGame | async}} game2</h1>
+
+<div *ngIf="game == waiting">
+    <h1>Waiting</h1>
+</div>
+
+<app-board></app-board>

@@ -1,0 +1,6 @@
+<div class="board">
+  <img src="../../assets/images/chess/board.png" alt="">
+  <div class="pieces-container">
+    <app-pieces *ngFor="let piece of pieces" [imgSource]="piece[0]" [id]="piece[1]" (idOut)="onPieceToggle($event)"></app-pieces>
+  </div>
+</div>

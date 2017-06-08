@@ -15,18 +15,16 @@ import { InquireUserService } from './../inquire-user.service'
 })
 export class ChessGameComponent {
   private uid: string;
-  private inGame: FirebaseListObservable<any>;
-  game: any;
+  private game: any;
   constructor(private userService: UserService, private inquireUserService: InquireUserService,
     private db: AngularFireDatabase, public afAuth: AngularFireAuth,
     private router: Router) {
     userService.getUser().subscribe(uid => {
       this.uid = uid;
     });
-    this.inGame = db.list('activeGames/' + this.uid + '/guest');
-    db.object('activeGames/' + this.uid + '/board', { preserveSnapshot: true }).subscribe(status => {
-      console.log(`game: ${status.val()}`);
-      this.game = status.val();
+    db.object('activeGames/' + this.uid + '/guest', { preserveSnapshot: true }).subscribe(snap => {
+      console.log(`guest should be ${snap.val()}`);
+      this.game = snap.val();
     });
   }
 
@@ -45,6 +43,7 @@ export class ChessGameComponent {
 
 
   getMyKey() {
+    console.log('activeGames/' + this.uid + '/guest')
     if (this.uid == null) {
       this.afAuth.authState.subscribe(user => {
         this.userService.setUser(user.uid);

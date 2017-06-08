@@ -17,6 +17,8 @@ import { ChessGameComponent } from './chess-game/chess-game.component';
 //Services
 import { UserService } from './user.service';
 import { InquireUserService } from './inquire-user.service';
+import { BoardComponent } from './board/board.component';
+import { PiecesComponent } from './pieces/pieces.component';
 
 const config = {
   apiKey: "AIzaSyCdU1NI-u0zp0Sl5f1mWkEP5WLAet_CHKY",
@@ -35,7 +37,9 @@ const config = {
     MemberComponent,
     NewGameMenuComponent,
     UserProfileComponent,
-    ChessGameComponent
+    ChessGameComponent,
+    BoardComponent,
+    PiecesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,32 @@
+.board{
+    position: absolute;
+    width: 100%;
+
+    max-width: 600px;
+    min-width: 350px;
+    /*background-image: url('../../assets/images/chess/board.png');
+    background-size: 100% auto;
+    background-repeat: no-repeat;*/
+
+    /*padding: 3.5% 3.7% 3.5% 3.7%;*/
+}
+.board img{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+}
+
+.pieces-container{
+    width: 90%;
+    top: 5%;
+    right: 4%;
+    display: flex;
+    flex-flow: wrap;
+    position: absolute;
+    padding-top: 5.9%;
+    padding-right: 1%;
+}
+app-pieces{
+    width: 11.6%;
+    margin: auto;
+ }
