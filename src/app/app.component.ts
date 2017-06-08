@@ -13,6 +13,6 @@ export class AppComponent {
   user: Observable<any>;
 
   constructor(private u: UserService){
-    this.user = u.getUser();  
+    this.user = u.getUser();
   }
 }
