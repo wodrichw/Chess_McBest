@@ -72,17 +72,6 @@ export class MemberComponent {
     this.userService.setUser(null);
     this.router.navigateByUrl('/login');
   }
-  cancelGameProposal(): void {
-    this.db.list('activeGames/' + this.uid).subscribe(uid => {
-      if (uid != null) {
-        this.db.list('activeGames/').remove(this.uid);
-      }
-    });
-    this.db.list('onlineUsers/').update(this.uid, { in_game: "Not in Game" });
-  }
-
-
-
   getMyKey(followUpFunc, parameters: any) {
     if (this.uid == null) {
       this.afAuth.authState.subscribe(user => {
