@@ -26,7 +26,7 @@ export class MemberComponent {
     userService.getUser().subscribe(uid => {
       this.uid = uid;
     });
-    this.inGame = db.list('activegames/' + this.uid );
+    this.inGame = db.list('activegames/' + this.uid);
   }
 
 
@@ -35,7 +35,7 @@ export class MemberComponent {
       if (this.uid != userkey) {
         this.inquireUserService.setInquireUser(userkey);
         this.db.object('onlineUsers/' + userkey + '/in_game', { preserveSnapshot: true }).subscribe(status => {
-          if (status.val() === "Click to Join") {
+          if (status.val() === "Click to Join" || status.val() === "In Game") { //**************************Delete In Game */
             //update database and route to chessgame player component
             this.db.list('onlineUsers/').update(userkey, { in_game: "In Game" });
             this.db.list('onlineUsers/').update(this.uid, { in_game: "In Game" });
@@ -55,8 +55,8 @@ export class MemberComponent {
   //Buttons!!!
   newGame(): void {
     if (this.uid != null) {
-      this.db.list('onlineUsers/').update(this.uid, { in_game: "Click to Join" }); //set user to "in game" on onlineUsers db
-      this.db.list('activeGames/').update(this.uid, { guest: "waiting", functions: "untouched" }).then(() => this.db.list('activeGames/' + this.uid + '/board').subscribe(snap => console.log(snap)));
+      this.db.list('onlineUsers/').update(this.uid, { in_game: "Click to Join", host: "true" }); //set user to "in game" on onlineUsers db
+      this.db.list('activeGames/').update(this.uid, { guest: "waiting", functions: "untouched" });
       this.router.navigateByUrl('/play-game');
     } else {
       this.getMyKey(this.newGame, null);

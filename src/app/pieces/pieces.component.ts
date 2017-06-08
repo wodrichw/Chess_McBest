@@ -23,11 +23,6 @@ export class PiecesComponent{
   @Output() idOut: EventEmitter<number> = new EventEmitter<number>();
 
   toggle(): void {
-    if (this.piece[this.piece.length - 1] == 'h') {
-      this.piece = this.piece.substring(0, this.piece.length - 1);
-    } else if (this.piece != 'bl') {
-      this.piece += 'h';
-    }
     this.genTag();
     this.idOut.next(this.id);  
   }

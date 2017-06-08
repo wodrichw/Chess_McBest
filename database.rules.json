@@ -1,10 +1,14 @@
 {
   "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null",
+    ".read": "true",
+    ".write": "true",
     "onlineUsers": {
-      ".write": true,
-      ".read": true
+      ".write": "true",
+      ".read": "true"
+    },
+    "activeGames": {
+      ".write": "true",
+      ".read": "true"
     }
   }
 }
