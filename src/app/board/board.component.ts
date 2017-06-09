@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PiecesComponent } from './../pieces/pieces.component';
-import { MoveMaster } from './move-master';
 import { FirebaseObjectObservable, AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
@@ -11,7 +10,6 @@ import { FirebaseObjectObservable, AngularFireDatabase } from 'angularfire2/data
 
 export class BoardComponent {
   selectedPiece: number;
-  mm: MoveMaster = new MoveMaster;
   pieces: string[];
   fenPieces: string;
   gameObservable: FirebaseObjectObservable<any>;
