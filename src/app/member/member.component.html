@@ -1,7 +1,8 @@
-<button (click)="newGame()">new Game</button>
-<button (click)="logout()">logout</button> 
+<button (click)="newGame()">New Game</button>
+<button (click)="logout()">Logout</button>
 <div class="online-users">
   <ul>
+    <h3> Players Available: </h3>
     <li *ngFor="let user of onlineUsers | async" (click)="inquireUser(user.$key)">
       <strong>{{user.username}}: </strong>{{user.in_game}}
     </li>
