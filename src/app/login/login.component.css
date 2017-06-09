@@ -12,6 +12,21 @@
     margin: 0;
 }
 
+.authorContainer{
+  float:left;
+  padding: inherit;
+  padding-left: 5%;
+  padding-top: 10%;
+}
+h2{
+  font-family: 'Cormorant SC';
+  font-size: 30px;
+}
+h3{
+  font-family: 'Cormorant SC';
+  font-size: 20px;
+}
+
 .loginContainer {
     float: left;
     width: 40%;
