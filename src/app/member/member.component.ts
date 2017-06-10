@@ -22,6 +22,13 @@ export class MemberComponent {
   constructor(private userService: UserService, private inquireUserService: InquireUserService,
     private db: AngularFireDatabase, public afAuth: AngularFireAuth,
     private router: Router) {
+    //go to login if not logged in
+    afAuth.authState.subscribe(auth => {
+      if (auth == null) {
+        router.navigateByUrl('/login');
+      }
+    });
+    
     this.onlineUsers = db.list('onlineUsers/');
     userService.getUser().subscribe(uid => {
       this.uid = uid;

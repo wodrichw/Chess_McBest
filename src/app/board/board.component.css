@@ -27,6 +27,12 @@
     padding-right: 1%;
 }
 app-pieces{
-    width: 11.6%;
+    width: 11.2%;
     margin: auto;
  }
+
+ @media screen and (min-width: 470px) {
+    app-pieces{
+     width: 11.6%;
+    }
+}

@@ -8,7 +8,6 @@ import { ChessGameComponent } from './chess-game/chess-game.component'
 
 export const appROUTES: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
-  { path: 'login', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
   { path: 'member', component: MemberComponent},
   { path: 'play-game', component: ChessGameComponent}

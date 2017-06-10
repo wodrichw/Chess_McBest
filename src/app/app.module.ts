@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 //Routing
 import { AppRoutingModule } from './app-routing.module';
+import { LocationStrategy, HashLocationStrategy} from '@angular/common';
 //angularFire
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2'
@@ -14,11 +15,12 @@ import { MemberComponent } from './member/member.component';
 import { NewGameMenuComponent } from './new-game-menu/new-game-menu.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ChessGameComponent } from './chess-game/chess-game.component';
+import { BoardComponent } from './board/board.component';
+import { PiecesComponent } from './pieces/pieces.component';
 //Services
 import { UserService } from './user.service';
 import { InquireUserService } from './inquire-user.service';
-import { BoardComponent } from './board/board.component';
-import { PiecesComponent } from './pieces/pieces.component';
+import { GameHostService } from './game-host.service'
 
 const config = {
   apiKey: "AIzaSyCdU1NI-u0zp0Sl5f1mWkEP5WLAet_CHKY",
@@ -50,7 +52,9 @@ const config = {
   ],
   providers: [
     UserService,
-    InquireUserService
+    InquireUserService,
+    GameHostService,
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })

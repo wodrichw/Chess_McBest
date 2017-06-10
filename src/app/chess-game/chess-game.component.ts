@@ -4,9 +4,11 @@ import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { FirebaseListObservable, AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database'
 import { FirebaseApp } from 'angularfire2';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs'
 
 import { UserService } from './../user.service';
-import { InquireUserService } from './../inquire-user.service'
+import { InquireUserService } from './../inquire-user.service';
+import { GameHostService } from './../game-host.service';
 
 @Component({
   selector: 'app-chess-game',
@@ -17,6 +19,7 @@ export class ChessGameComponent {
   private myUid: string;
   private opUid: string;
   private hostUid: string = 'temp';
+  private hostUidService: Observable<string>
   private game: any;
   private guest: string;
   private hostState: FirebaseObjectObservable<any>;
@@ -24,8 +27,15 @@ export class ChessGameComponent {
   private gameState: FirebaseObjectObservable<any>;
 
   constructor(private userService: UserService, private inquireUserService: InquireUserService,
-    private db: AngularFireDatabase, public afAuth: AngularFireAuth,
-    private router: Router) {
+    private hostService: GameHostService, private db: AngularFireDatabase, 
+    public afAuth: AngularFireAuth, private router: Router) {
+    //go to login if not logged in
+    afAuth.authState.subscribe(auth => {
+      if (auth == null) {
+        router.navigateByUrl('/login');
+      }
+    });
+
     //get Users uid
     userService.getUser().subscribe(uid => {
       this.myUid = uid;
@@ -40,6 +50,8 @@ export class ChessGameComponent {
     } else {
       this.setStates();
     }
+    //set host service
+    this.hostUidService = hostService.getHost();
   }
 
   cancelGameProposal(): void {
@@ -79,7 +91,9 @@ export class ChessGameComponent {
       } else {
         this.hostUid = this.opUid;
       }
-      console.log(`host is ${this.hostUid}`);
+      if (this.hostUid != null){
+        this.hostService.setInquireHost(this.hostUid);
+      }
       this.gameState = this.db.object('activeGames/' + this.hostUid, {preserveSnapshot: true});
       this.gameState.subscribe(snap => {
         this.guest = snap.val().guest; 

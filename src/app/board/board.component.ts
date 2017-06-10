@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { PiecesComponent } from './../pieces/pieces.component';
 import { FirebaseObjectObservable, AngularFireDatabase } from 'angularfire2/database';
 
@@ -8,7 +8,7 @@ import { FirebaseObjectObservable, AngularFireDatabase } from 'angularfire2/data
   styleUrls: ['./board.component.css']
 })
 
-export class BoardComponent {
+export class BoardComponent implements OnChanges {
   selectedPiece: number;
   pieces: string[];
   fenPieces: string;
@@ -20,22 +20,39 @@ export class BoardComponent {
   set setGameObservable(hostUid: string) {
     //get the key for the game in the database that this game is referencing, then set an observable to see changes game on database
     this.hostUid = hostUid;
-    this.gameObservable = this.db.object('activeGames/' + this.hostUid, { preserveSnapshot: true });
-    this.gameObservable.subscribe(snap => {
-      this.fenPieces = snap.val().board;
-      this.structureBoard();
-    });
   }
 
   constructor(private db: AngularFireDatabase) {
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    for (let propName in changes) {
+      let chng = changes[propName];
+      let cur = JSON.stringify(chng.currentValue);
+      //this.hostUid = cur;
+      console.log(`current value ${chng.currentValue}`);
+      this.hostUid = chng.currentValue;
+      let prev = JSON.stringify(chng.previousValue);
+    }
+    if (this.hostUid != null) {
+      this.gameObservable = this.db.object('activeGames/' + this.hostUid, { preserveSnapshot: true });
+      this.gameObservable.subscribe(snap => {
+        if (snap.val() != null) {
+          this.fenPieces = snap.val().board;
+          this.structureBoard();
+        }
+      });
+    }
   }
   onPieceToggle(event): void {
     this.move(event);
   }
 
   structureBoard() {
-    this.setPiecesFromFen();
-    this.getTurn();
+    if (this.fenPieces != null) {
+      this.setPiecesFromFen();
+      this.getTurn();
+    }
   }
   getTurn() {
     this.turn = this.fenPieces[this.fenPieces.indexOf(' ') + 1];
@@ -104,7 +121,7 @@ export class BoardComponent {
             return 'h';
         }
       }
-      return getLetter(id) + Math.abs(Math.floor(id/8) - 8);
+      return getLetter(id) + Math.abs(Math.floor(id / 8) - 8);
     }
     console.log(id);
     if (this.selectedPiece == null) {
