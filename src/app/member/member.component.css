@@ -29,11 +29,23 @@ strong{
   font-weight: bold;
   font-size: 20px;
 }
+
+strong:hover{
+	color: #722f37;
+	cursor: pointer;
+}
+
 ul{
   list-style-type: none;
 }
 li{
   font-size: 20px;
+  
+  
+}
+li:hover{
+	cursor: pointer;
+	color: #722f37;
 }
 
 div{
@@ -45,4 +57,7 @@ div{
     padding: 20px;
 
     height: inherit;
-  }
+ }
+h3{
+	cursor: default;
+}

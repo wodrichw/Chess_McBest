@@ -1,9 +1,9 @@
 .board{
-    position: absolute;
+    position: absolute; 
     width: 100%;
-
     max-width: 600px;
     min-width: 350px;
+	cursor: grab;
     /*background-image: url('../../assets/images/chess/board.png');
     background-size: 100% auto;
     background-repeat: no-repeat;*/
@@ -30,7 +30,10 @@ app-pieces{
     width: 11.2%;
     margin: auto;
  }
-
+app-pieces:active{
+	cursor: grabbing;
+}
+ 
  @media screen and (min-width: 470px) {
     app-pieces{
      width: 11.6%;
