@@ -2,8 +2,7 @@
     position: absolute; 
     width: 100%;
     max-width: 600px;
-    min-width: 350px;
-	cursor: grab;
+    min-width: 330px;
     /*background-image: url('../../assets/images/chess/board.png');
     background-size: 100% auto;
     background-repeat: no-repeat;*/
