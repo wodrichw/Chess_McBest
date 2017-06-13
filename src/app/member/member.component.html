@@ -1,11 +1,19 @@
-<button (click)="newGame()">New Game: Online</button>
-<button (click)="newGame()">New Game: Offline</button>
-<button (click)="logout()">Logout of Game</button>
-<div class="online-users">
+<div class= "background">
+<div class = "contentContainer">
+<div class="onlineUsers">
   <ul>
     <h3> Players Available: </h3>
     <li *ngFor="let user of onlineUsers | async" (click)="inquireUser(user.$key)">
-      <strong>{{user.username}}: </strong>{{user.in_game}}
+      <div class = "playerList"> <strong>{{user.username}}: </strong>
+        <p class = "playerStatusText">{{user.in_game}}</p>
+    </div>
     </li>
   </ul>
+</div>
+<div class = "buttonBox">
+    <button (click)="newGame()">Online Game</button>
+    <button (click)="newGame()">Offline Game</button>
+    <button (click)="logout()">Logout</button>
+</div>
+</div>
 </div>
