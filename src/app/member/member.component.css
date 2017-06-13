@@ -1,19 +1,32 @@
+.background {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex-grow: 1;
+}
+
+.contentContainer {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+}
+
 button{
+  display: block;
   font-family: 'Cormorant SC';
-  right: 10px;
-  padding-left: -10px;
-  top: 5px;
+  text-align: center;
   font-size: 24px;
-  font-weight:400;
   border: 5px solid #722f37;
+  border-left: 0;
   background: white;
   cursor: pointer;
   outline: none;
-  margin-left: 10px;
-  border-radius: 25px;
+  /*border-radius: 25px;*/
   padding: 20px;
-  width: 200px;
-  height: 150px;
+  width: 100%;
+  height: calc(33.3333% + 5px);
+  margin-top: -5px;
+
 }
 
  button:focus{
@@ -29,20 +42,65 @@ strong{
   font-weight: bold;
   font-size: 20px;
 }
+
+strong:hover{
+	color: #722f37;
+	cursor: pointer;
+}
+
 ul{
   list-style-type: none;
 }
 li{
   font-size: 20px;
+
+
+}
+li:hover{
+	cursor: pointer;
+	color: #722f37;
 }
 
-div{
-    margin-top: 20px;
-    max-width: inherit;
-    border: 40px solid lightgrey;
-    margin: 10px;
-    border-radius: 25px;
-    padding: 20px;
+.onlineUsers{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    margin-top: -5px;
+    padding-right: 5%;
+    width: 60%;
+    border: 5px solid #722f37;
+    background: #ffb6c1;
+ }
 
-    height: inherit;
-  }
+.playerList{
+    display: inline-block;
+    border-color: darkgrey;
+    border: 2px solid white;
+    padding: 5px;
+    width: 100%;
+    margin-top: -2px;
+    height: auto;
+}
+
+.playerStatusText{
+    float: right;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+.buttonBox{
+    display: flex;
+    flex-grow: 1;
+    flex-flow: column;
+    float: right;
+    width: 30%;
+    background-color: lightgrey;
+    margin-left: -5px;
+    border-left:  5px solid #722f37;
+}
+
+h3{
+	cursor: default;
+}
