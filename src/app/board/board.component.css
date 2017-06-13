@@ -3,7 +3,7 @@
     width: 100%;
 
     max-width: 600px;
-    min-width: 350px;
+    min-width: 330px;
     /*background-image: url('../../assets/images/chess/board.png');
     background-size: 100% auto;
     background-repeat: no-repeat;*/
@@ -27,7 +27,7 @@
     padding-right: 1%;
 }
 app-pieces{
-    width: 11.2%;
+    width: 11.2 %;
     margin: auto;
  }
 
