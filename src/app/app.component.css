@@ -22,3 +22,28 @@ h2{
   width: 200px;
   text-align: center;
 }
+button{
+  cursor: pointer;
+  float: right;
+
+  font-family: 'Cormorant SC';
+  text-align: center;
+  font-size: 24px;
+  border: 3px solid #772f37;
+  background: lightgrey;
+
+  outline: none;
+  /*border-radius: 25px;*/
+  padding: 20px;
+  width: 20%;
+  height: calc(33.3333% + 5px);
+  margin-top: -5px;
+}
+button:focus{
+  outline: none;
+}
+
+button:hover{
+ color: white;
+ background-color: #722f37;
+}
