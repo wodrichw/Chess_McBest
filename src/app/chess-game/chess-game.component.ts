@@ -26,7 +26,7 @@ export class ChessGameComponent {
   private gameState: FirebaseObjectObservable<any>;
 
   constructor(private userService: UserService, private inquireUserService: InquireUserService,
-    private hostService: GameHostService, private db: AngularFireDatabase, 
+    private hostService: GameHostService, private db: AngularFireDatabase,
     public afAuth: AngularFireAuth, private router: Router) {
     //go to login if not logged in
     afAuth.authState.subscribe(auth => {
@@ -88,16 +88,18 @@ export class ChessGameComponent {
       } else {
         this.hostUid = this.opUid;
       }
-      if (this.hostUid != null){
+      if (this.hostUid != null) {
         this.hostService.setInquireHost(this.hostUid);
       }
-      this.gameState = this.db.object('activeGames/' + this.hostUid, {preserveSnapshot: true});
+      this.gameState = this.db.object('activeGames/' + this.hostUid, { preserveSnapshot: true });
       this.gameState.subscribe(snap => {
-        this.guest = snap.val().guest; 
-        /* check for game over */
-        if (snap.val().gameOver == 'true'){
-          alert('game is over');
-          this.cancelGameProposal();
+        if (snap.val() != null) {
+          this.guest = snap.val().guest;
+          /* check for game over */
+          if (snap.val().gameOver == 'true') {
+            alert('game is over');
+            this.cancelGameProposal();
+          }
         }
       });
     });
