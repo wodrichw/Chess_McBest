@@ -23,7 +23,6 @@ export class ChessGameComponent {
   private game: any;
   private guest: string;
   private hostState: FirebaseObjectObservable<any>;
-  private guestState: FirebaseObjectObservable<any>;
   private gameState: FirebaseObjectObservable<any>;
 
   constructor(private userService: UserService, private inquireUserService: InquireUserService,
@@ -68,8 +67,6 @@ export class ChessGameComponent {
         }
         this.cancelGameProposal();
       });
-
-
     }
   }
   getMyKey() {
@@ -97,6 +94,11 @@ export class ChessGameComponent {
       this.gameState = this.db.object('activeGames/' + this.hostUid, {preserveSnapshot: true});
       this.gameState.subscribe(snap => {
         this.guest = snap.val().guest; 
+        /* check for game over */
+        if (snap.val().gameOver == 'true'){
+          alert('game is over');
+          this.cancelGameProposal();
+        }
       });
     });
   }

@@ -124,7 +124,7 @@ export class BoardComponent implements OnChanges {
       return getLetter(id) + Math.abs(Math.floor(id / 8) - 8);
     }
     console.log(id);
-    if (this.selectedPiece == null) {
+    if (this.selectedPiece == null) { 
       if (this.pieces[id] != 'bl' && this.pieces[id][1] == this.turn) {
         this.selectedPiece = id;
         this.pieces[id] += 'h';
