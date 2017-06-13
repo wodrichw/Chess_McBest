@@ -18,34 +18,11 @@ exports.gameHandler = functions.database
             chess.move(gameData.move);
             return event.data.ref.update({
                 functions: "touched",
-                board: chess.fen()
+                board: chess.fen(),
+                gameOver: chess.game_over().toString()
             }).then(
                 () => console.log(`its been fun scotty`));
         } else {
             console.log('dag nabbit');
         }
     });
-/*
-exports.moveHandler = functions.database
-    .ref('activeGames/{hostId}/move').onWrite(event => {
-        admin.database().ref(`/activeGames/${event.params.hostId}`).val()
-        var functions = event.data.ref.parent.child('functions').val();
-        if (functions == "untouched") {
-            var board = event.data.ref.parent.child('board').val();
-            var move = event.data.val();
-            chess.load(board);
-            chess.move('{' + move + '}');
-            if (board != chess.fen()) {
-                return event.data.ref.parent.update({
-                    functions: "touched",
-                    board: chess.fen()
-                });
-            } else {
-                return;
-            }
-        }
-    });
-
-exports.touch = functions.database.ref('/chat/{message}').onWrite(
-event => admin.database().ref('/lastmodified').set(event.timestamp));
-*/
