@@ -28,7 +28,7 @@ export class MemberComponent {
         router.navigateByUrl('/login');
       }
     });
-    
+
     this.onlineUsers = db.list('onlineUsers/');
     userService.getUser().subscribe(uid => {
       this.uid = uid;

@@ -1,9 +1,20 @@
-<h1> User Profiles </h1>
-<div class="online-users">
+<div class= "background">
+  <input type="text" name="search" placeholder="Search for a Person's Profile..">
+
+<div class = "contentContainer">
+<div class="onlineUsers">
   <ul>
-    <h3> Which user profile do you want to see? </h3>
+    <h3> Player Profiles: </h3>
     <li *ngFor="let user of onlineUsers | async" (click)="inquireUser(user.$key)">
-      <strong>{{user.username}}: </strong>{{user.in_game}}
+      <div class = "playerList"> <strong>{{user.username}}: </strong>
+        <p class = "playerStatusText">{{user.in_game}}</p>
+    </div>
     </li>
   </ul>
+</div>
+<div class = "buttonBox">
+    <button (click)="newGame()">Back to Game Menu</button>
+
+</div>
+</div>
 </div>
