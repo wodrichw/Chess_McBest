@@ -1,0 +1,37 @@
+strong{
+  font-family: 'Cormorant SC';
+  font-weight: bold;
+  font-size: 20px;
+}
+
+strong:hover{
+	color: #722f37;
+	cursor: pointer;
+}
+
+ul{
+  list-style-type: none;
+}
+li{
+  font-size: 20px;
+
+
+}
+li:hover{
+	cursor: pointer;
+	color: #722f37;
+}
+
+div{
+    margin-top: 20px;
+    max-width: inherit;
+    border: 40px solid lightgrey;
+    margin: 10px;
+    border-radius: 25px;
+    padding: 20px;
+    background: #ffb6c1;
+    height: inherit;
+ }
+h3{
+	cursor: default;
+}
