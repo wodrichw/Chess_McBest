@@ -1,19 +1,19 @@
-button{
+.sidebox{
   font-family: 'Cormorant SC';
-  right: 10px;
-  padding-left: -10px;
-  top: 5px;
-  font-size: 24px;
-  font-weight:400;
   border: 5px solid #722f37;
   background: white;
   cursor: pointer;
-  outline: none;
   border-radius: 25px;
+  font-size: 40px;
+  font-weight:400;
+  color: #722f37;
+  outline: none;
+  margin: 0;
   margin-left: 10px;
+  margin-top: 10px;
   padding: 20px;
-  width: 200px;
-  height: 150px;
+  width: 250px;
+  text-align: center;
 
 }
 
@@ -26,23 +26,57 @@ button:hover{
   background-color: #722f37;
 }
 
-h1{
+.waitingb{
   font-family: cursive 'Cormorant SC';
-  right: 10px;
-  padding-left: -10px;
-  top: 5px;
   font-size: 40px;
   font-weight:400;
-  background: #b6984c;
+  color: white;
+  background: #991212;
   outline: none;
+  margin: 0;
   margin-left: 10px;
   border-radius: 25px;
+  border: 5px solid #722f37;
   padding: 20px;
   width: 200px;
   text-align: center;
+}
 
+.waitingg{
+  font-family: cursive 'Cormorant SC';
+  right: 10px;
+  top: 5px;
+  font-size: 40px;
+  font-weight:400;
+  color: white;
+  background: #0a6624;
+  outline: none;
+  margin: 0;
+  margin-left: 10px;
+  border-radius: 25px;
+  border: 5px solid #722f37;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+}
+
+.contentContainer{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+}
+.buttonContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.boardContainer{
+    border: 5px solid #722f37;
+    height: calc(100vh - 10px);
+    width: calc(100vh - 10px);
 }
 app-board{
-  
+
 
 }
