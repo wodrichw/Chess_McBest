@@ -3,6 +3,7 @@
 
 		padding-right: 550px;
   }
+
 }
 
 h2{
@@ -22,23 +23,37 @@ h2{
   width: 200px;
   text-align: center;
 }
-button{
-  cursor: pointer;
-  float: right;
+@media screen and (max-width: 800px){
+  button{
 
+
+  }
+
+}
+
+button{
+
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  top: 7px;
+  height: 90px;
+  width: 110px;
   font-family: 'Cormorant SC';
   text-align: center;
-  font-size: 24px;
+  font-size: 22px;
   border: 3px solid #772f37;
   background: lightgrey;
 
   outline: none;
   /*border-radius: 25px;*/
-  padding: 20px;
-  width: 20%;
-  height: calc(33.3333% + 5px);
+
+
+
   margin-top: -5px;
+  margin-bottom: 5px;
 }
+
 button:focus{
   outline: none;
 }
