@@ -1,5 +1,5 @@
 .contentContainer {
-    display: flex;
+  display: flex;
 }
 
 .decoTextContainer {
@@ -7,6 +7,7 @@
     margin: 5%;
     word-wrap: break-word;
     margin: 0;
+
 }
 
 .decoText {
@@ -16,22 +17,36 @@
 }
 
 .authorContainer{
-  position: fixed;
-  bottom: 10px;
-  left: 25%;
+  width: 40%;
+  margin: 5%;
+  word-wrap: break-word;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  padding-left: 5%;
+
+}
+@media screen and (max-width: 1300px){
+  .authorContainer{
+
+    position:static;
+  }
 }
 h2{
   font-family: 'Cormorant SC';
   font-size: 30px;
+
 }
 h3{
   font-family: 'Cormorant SC';
   font-size: 20px;
+
 }
 
 .loginContainer {
-    width: 40%;
+    widith: 80px;
     margin: 5%;
+
 }
 
 .login-button {

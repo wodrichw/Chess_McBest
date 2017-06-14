@@ -44,7 +44,7 @@ strong{
 }
 
 strong:hover{
-	color: #722f37;
+	color: white;
 	cursor: pointer;
 }
 
@@ -58,7 +58,7 @@ li{
 }
 li:hover{
 	cursor: pointer;
-	color: #722f37;
+	color: white;
 }
 
 .onlineUsers{
@@ -123,4 +123,7 @@ input[type=text] {
 
 input[type=text]:focus {
     width: 100%;
+}
+.searchContainer{
+	padding-left:10px;
 }

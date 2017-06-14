@@ -23,8 +23,9 @@ export class AppComponent {
         db.object(`onlineUsers/${uid}/username`, { preserveSnapshot: true }).subscribe(snap => {
           this.userName = snap.val();
         });
-        
+
       }
     });
+
   }
 }

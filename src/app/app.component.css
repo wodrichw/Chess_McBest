@@ -1,7 +1,64 @@
-.decoTextContainer {
-	
+@media screen and (max-width: 970px){
+  .site-title{
+
+		padding-right: 550px;
+  }
+
 }
 
-.decoText {
-    
+h2{
+	padding-left: 10px;
+  font-family: cursive 'Cormorant SC';
+  font-size: 28px;
+  font-weight:400;
+  color: #290800;
+  background: #b98e61;
+  outline: none;
+  margin: 0;
+  margin-left: 10px;
+  border-radius: 25px;
+  padding: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 200px;
+  text-align: center;
+}
+@media screen and (max-width: 800px){
+  button{
+
+
+  }
+
+}
+
+button{
+
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  top: 7px;
+  height: 90px;
+  width: 110px;
+  font-family: 'Cormorant SC';
+  text-align: center;
+  font-size: 22px;
+  border: 3px solid #772f37;
+  background: lightgrey;
+
+  outline: none;
+  /*border-radius: 25px;*/
+
+
+
+  margin-top: -5px;
+  margin-bottom: 5px;
+}
+
+button:focus{
+  outline: none;
+}
+
+button:hover{
+ color: white;
+ background-color: #722f37;
 }
