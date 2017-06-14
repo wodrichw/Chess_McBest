@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <button *ngIf="guest == 'waiting'" (click)="cancelGameProposal()">cancel</button>
 <button (click)="cancelGameProposal()">cancel temp</button>
 
@@ -6,11 +5,9 @@
     
     <div *ngIf="guest == 'waiting'">
         <h1>Waiting...</h1>
-=======
 <div class = "contentContainer">
     <div class = "boardContainer">
         <app-board [setGameObservable]="hostUidService | async"></app-board>
->>>>>>> 347cedc35990f3c09ec94597c69273a7b0cb64d3
     </div>
     <div class = "buttonContainer">
         <div>
