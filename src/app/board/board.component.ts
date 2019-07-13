@@ -1,6 +1,4 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { PiecesComponent } from './../pieces/pieces.component';
-import { FirebaseObjectObservable, AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'app-board',
@@ -12,7 +10,7 @@ export class BoardComponent implements OnChanges {
   selectedPiece: number;
   pieces: string[];
   fenPieces: string;
-  gameObservable: FirebaseObjectObservable<any>;
+  gameObservable: any;
   hostUid: string;
   turn: string;
 
@@ -22,8 +20,7 @@ export class BoardComponent implements OnChanges {
     this.hostUid = hostUid;
   }
 
-  constructor(private db: AngularFireDatabase) {
-  }
+  constructor() { }
 
   ngOnChanges(changes: SimpleChanges) {
     for (let propName in changes) {
@@ -35,7 +32,7 @@ export class BoardComponent implements OnChanges {
       let prev = JSON.stringify(chng.previousValue);
     }
     if (this.hostUid != null) {
-      this.gameObservable = this.db.object('activeGames/' + this.hostUid, { preserveSnapshot: true });
+      // this.gameObservable = this.db.object('activeGames/' + this.hostUid, { preserveSnapshot: true });
       this.gameObservable.subscribe(snap => {
         if (snap.val() != null) {
           this.fenPieces = snap.val().board;
@@ -123,25 +120,11 @@ export class BoardComponent implements OnChanges {
       }
       return getLetter(id) + Math.abs(Math.floor(id / 8) - 8);
     }
-    console.log(id);
-    if (this.selectedPiece == null) { 
-      if (this.pieces[id] != 'bl' && this.pieces[id][1] == this.turn) {
+    if (this.selectedPiece == null) {
+      if (this.pieces[id] !== 'bl' && this.pieces[id][1] === this.turn) {
         this.selectedPiece = id;
         this.pieces[id] += 'h';
       }
-    } else {
-      console.log(`Algebraic first: ${getAlgebraic(this.selectedPiece)}, second ${getAlgebraic(id)}`);
-      this.db.list('activeGames/')
-        .update(this.hostUid, {
-          move: {
-            from: getAlgebraic(this.selectedPiece),
-            to: getAlgebraic(id)
-          },
-          functions: "untouched"
-        });
-      //this.pieces[id] = this.pieces[this.selectedPiece];
-      //this.pieces[this.selectedPiece] = 'bl';
-      this.selectedPiece = null;
     }
   }
 
